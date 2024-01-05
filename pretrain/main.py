@@ -26,6 +26,7 @@ from utils.imagenet import build_dataset_to_pretrain
 from utils.lr_control import lr_wd_annealing, get_param_groups
 
 import wandb
+from datetime import datetime
 
 
 class LocalDDP(torch.nn.Module):
@@ -38,12 +39,13 @@ class LocalDDP(torch.nn.Module):
 
 
 def init_wandb(args):
-    run_name = f"{args.exp_name}_{time}"
+    date_time = datetime.now().strftime("%m-%d_%H:%M:%S")
+    run_name = f"{args.exp_name}_{date_time}"
 
     # Create wandb logger
     wandb.init(
         name=run_name,
-        project="multitask-bone-classification",
+        project="AIML-SSL",
         entity="jeroenov98",
         config=args,
         dir=args.exp_dir,
