@@ -4,7 +4,8 @@
 
 python main.py \
 --exp_name=debug \
---data_path=/media/jvrielink/9958194f-e772-4a20-b156-50f2ac51f106/spark_data \
+--exp_dir=/media/jvrielink/9958194f-e772-4a20-b156-50f2ac51f106/spark_data \
+--data_path=/home/jvrielink/AIML_rot_corrected \
 --model=resnet50 \
 --bs=256 \
 --base_lr=0.0032 \
