@@ -1,0 +1,46 @@
+    exp_name: str = 'your_exp_name'
+    exp_dir: str = 'your_exp_dir'   # will be created if not exists
+    data_path: str = 'imagenet_data_path'
+    init_weight: str = ''   # use some checkpoint as model weight initialization; ONLY load model weights
+    resume_from: str = ''   # resume the experiment from some checkpoint.pth; load model weights, optimizer states, and last epoch
+    
+    # SparK hyperparameters
+    mask: float = 0.6   # mask ratio, should be in (0, 1)
+    
+    # encoder hyperparameters
+    model: str = 'resnet50'
+    input_size: int = 224
+    sbn: bool = True
+    
+    # data hyperparameters
+    bs: int = 4096
+    dataloader_workers: int = 8
+    
+    # pre-training hyperparameters
+    dp: float = 0.0
+    base_lr: float = 2e-4
+    wd: float = 0.04
+    wde: float = 0.2
+    ep: int = 1600
+    wp_ep: int = 40
+    clip: int = 5.
+    opt: str = 'lamb'
+    ada: float = 0.
+    
+    # NO NEED TO SPECIFIED; each of these args would be updated in runtime automatically
+    lr: float = None
+    batch_size_per_gpu: int = 0
+    glb_batch_size: int = 0
+    densify_norm: str = ''
+    device: str = 'cpu'
+    local_rank: int = 0
+    cmd: str = ' '.join(sys.argv[1:])
+    commit_id: str = os.popen(f'git rev-parse HEAD').read().strip() or '[unknown]'
+    commit_msg: str = (os.popen(f'git log -1').read().strip().splitlines() or ['[unknown]'])[-1].strip()
+    last_loss: float = 0.
+    cur_ep: str = ''
+    remain_time: str = ''
+    finish_time: str = ''
+    first_logging: bool = True
+    log_txt_name: str = '{args.exp_dir}/pretrain_log.txt'
+    tb_lg_dir: str = ''     # tensorboard log directory

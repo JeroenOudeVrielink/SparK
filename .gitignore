@@ -4,4 +4,6 @@
 ckpt/
 *.pth
 *.log
-*.txt
+
+*/wandb
+*/your_exp_dir
