@@ -12,6 +12,8 @@ from tap import Tap
 
 import dist
 
+from datetime import datetime
+
 
 class Args(Tap):
     # environment
@@ -30,8 +32,8 @@ class Args(Tap):
     sbn: bool = True
 
     # data hyperparameters
-    bs: int = 4
-    dataloader_workers: int = 4
+    bs: int = 4096
+    dataloader_workers: int = 8
 
     # pre-training hyperparameters
     dp: float = 0.0
@@ -63,6 +65,10 @@ class Args(Tap):
     first_logging: bool = True
     log_txt_name: str = "{args.exp_dir}/pretrain_log.txt"
     tb_lg_dir: str = ""  # tensorboard log directory
+
+    # CUSTOM params
+    wandb_log_freq: int = 100
+    date_time: str = ""
 
     @property
     def is_convnext(self):
@@ -113,6 +119,9 @@ def init_dist_and_get_args():
     d, e = os.path.dirname(e), os.path.basename(e)
     e = "".join(ch if (ch.isalnum() or ch == "-") else "_" for ch in e)
     args.exp_dir = os.path.join(d, e)
+
+    args.date_time = date_time = datetime.now().strftime("%m-%d_%H:%M:%S")
+    args.exp_dir = os.path.join(args.exp_dir, args.exp_name + "_" + date_time)
 
     os.makedirs(args.exp_dir, exist_ok=True)
     args.log_txt_name = os.path.join(args.exp_dir, "pretrain_log.txt")

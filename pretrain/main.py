@@ -39,8 +39,7 @@ class LocalDDP(torch.nn.Module):
 
 
 def init_wandb(args):
-    date_time = datetime.now().strftime("%m-%d_%H:%M:%S")
-    run_name = f"{args.exp_name}_{date_time}"
+    run_name = f"{args.exp_name}_{args.date_time}"
 
     # Create wandb logger
     wandb.init(
@@ -281,20 +280,22 @@ def pre_train_one_ep(
         tb_lg.update(sche_wd=max_wd, head="train_hp/wd_max")
         tb_lg.update(sche_wd=min_wd, head="train_hp/wd_min")
 
-        wandb.log(
-            {
-                "loss": me.meters["last_loss"].global_avg,
-                "lr_max": max_lr,
-                "lr_min": min_lr,
-                "wd_max": max_wd,
-                "wd_min": min_wd,
-            }
-        )
+        if it % args.wandb_log_freq == 0:
+            wandb.log(
+                {
+                    "loss": me.meters["last_loss"].global_avg,
+                    "lr_max": max_lr,
+                    "lr_min": min_lr,
+                    "wd_max": max_wd,
+                    "wd_min": min_wd,
+                }
+            )
 
         if grad_norm is not None:
             me.update(orig_norm=grad_norm)
             tb_lg.update(orig_norm=grad_norm, head="train_hp")
-            wandb.log({"grad_norm": grad_norm})
+            if it % args.wandb_log_freq == 0:
+                wandb.log({"grad_norm": grad_norm})
         tb_lg.set_step()
 
     me.synchronize_between_processes()

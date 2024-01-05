@@ -113,7 +113,7 @@ def build_dataset_to_pretrain(dataset_path, input_size) -> Dataset:
             transforms.RandomHorizontalFlip(),
             transforms.Grayscale(num_output_channels=3),
             transforms.ToTensor(),
-            transforms.Normalize(mean=IMAGENET_DEFAULT_MEAN, std=IMAGENET_DEFAULT_STD),
+            # transforms.Normalize(mean=IMAGENET_DEFAULT_MEAN, std=IMAGENET_DEFAULT_STD),
         ]
     )
 
