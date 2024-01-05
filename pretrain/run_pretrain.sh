@@ -15,5 +15,5 @@ python main.py \
 --exp_dir=/media/jvrielink/9958194f-e772-4a20-b156-50f2ac51f106/spark_data \
 --data_path=/home/jvrielink/AIML_rot_corrected \
 --model=resnet50 \
---bs=128 \
+--bs=96 \
 --ep=400
