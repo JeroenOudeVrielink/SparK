@@ -11,8 +11,7 @@ import sys
 from tap import Tap
 
 import dist
-
-from datetime import datetime
+import datetime
 
 
 class Args(Tap):
@@ -120,8 +119,8 @@ def init_dist_and_get_args():
     e = "".join(ch if (ch.isalnum() or ch == "-") else "_" for ch in e)
     args.exp_dir = os.path.join(d, e)
 
-    args.date_time = date_time = datetime.now().strftime("%m-%d_%H:%M:%S")
-    args.exp_dir = os.path.join(args.exp_dir, args.exp_name + "_" + date_time)
+    args.date_time = datetime.datetime.now().strftime("%m-%d_%H:%M:%S")
+    args.exp_dir = os.path.join(args.exp_dir, args.exp_name + "_" + args.date_time)
 
     os.makedirs(args.exp_dir, exist_ok=True)
     args.log_txt_name = os.path.join(args.exp_dir, "pretrain_log.txt")
