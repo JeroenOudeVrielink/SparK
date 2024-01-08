@@ -6,4 +6,4 @@ docker run \
 --gpus '"device=1"' \
 --mount type=bind,src=/home/jvrielink,target=/jvrielink \
 --shm-size 64G \
-jvrielink/pytorch_spark
+jvrielink/pytorch_spark_new
