@@ -95,9 +95,10 @@ def main_pt():
             pin_memory=True,
         )
         start = time()
-        for epoch in range(1, 3):
-            for i, data in enumerate(train_loader, 0):
-                pass
+        for i, data in enumerate(train_loader, 0):
+            pass
+            if i == 10:
+                break
         end = time()
         print("Finish with:{} second, num_workers={}".format(end - start, num_workers))
 
