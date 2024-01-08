@@ -47,7 +47,7 @@ class AIMLDataset(Dataset):
         return len(self.img_paths_labels)
 
     def __getitem__(self, idx):
-        img_path = os.path.join(self.data_path, self.img_paths_labels.iloc[idx, 0])
+        img_path = os.path.join(self.data_path, self.img_paths_labels.iloc[idx, -1])
         image = Image.open(img_path)
 
         if self.transform:
@@ -78,7 +78,7 @@ class ImageNetDataset(DatasetFolder):
         self.targets = None  # this is self-supervised learning so we don't need labels
 
     def __getitem__(self, index: int) -> Any:
-        img_file_path = self.samples[index, -1]
+        img_file_path = self.samples[index]
         return self.transform(self.loader(img_file_path))
 
 
