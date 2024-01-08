@@ -26,7 +26,8 @@ from utils.imagenet import build_dataset_to_pretrain
 from utils.lr_control import lr_wd_annealing, get_param_groups
 
 import wandb
-from datetime import datetime
+
+torch.set_float32_matmul_precision("medium")
 
 
 class LocalDDP(torch.nn.Module):
