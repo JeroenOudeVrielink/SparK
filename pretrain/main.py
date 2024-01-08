@@ -27,7 +27,7 @@ from utils.lr_control import lr_wd_annealing, get_param_groups
 
 import wandb
 
-torch.set_float32_matmul_precision("high")
+torch.set_float32_matmul_precision("highest")
 
 
 class LocalDDP(torch.nn.Module):
