@@ -39,9 +39,7 @@ class AIMLDataset(Dataset):
         data_path: str,
         transform=None,
     ):
-        self.img_paths_labels = pd.read_pickle(
-            os.path.join(data_path, annotations_file)
-        )
+        self.img_paths_labels = pd.read_csv(os.path.join(data_path, annotations_file))
         self.data_path = data_path
         self.transform = transform
 
