@@ -123,7 +123,7 @@ def build_dataset_to_pretrain(dataset_path, input_size) -> Dataset:
     # dataset_train = ImageNetDataset(
     #     imagenet_folder=dataset_path, transform=trans_train, train=True
     # )
-    annotations_file = os.path.join(dataset_path, "annotations/img_paths_mini.csv")
+    annotations_file = os.path.join(dataset_path, "annotations/img_paths.csv")
     dataset_train = AIMLDataset(annotations_file, dataset_path, mod_trans_train)
     print_transform(mod_trans_train, "[pre-train]")
     return dataset_train
