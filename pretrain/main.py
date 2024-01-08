@@ -166,6 +166,8 @@ def main_pt():
 
         pt_start_time = time.time()
         for ep in range(ep_start, args.ep):
+            wandb.log({"epoch": ep})
+
             ep_start_time = time.time()
             tb_lg.set_step(ep * iters_train)
             if hasattr(itrt_train, "set_epoch"):
