@@ -6,6 +6,6 @@ python main.py \
 --model=resnet50 \
 --bs=256 \
 --ep=400 \
---dataloader_workers=16
+--dataloader_workers=14
 
 

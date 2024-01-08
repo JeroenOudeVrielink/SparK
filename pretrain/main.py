@@ -83,24 +83,24 @@ def main_pt():
         f"[dataloader] gbs={args.glb_batch_size}, lbs={args.batch_size_per_gpu}, iters_train={iters_train}"
     )
 
-    from time import time
-    import multiprocessing as mp
+    # from time import time
+    # import multiprocessing as mp
 
-    for num_workers in range(2, mp.cpu_count(), 2):
-        train_loader = DataLoader(
-            dataset_train,
-            shuffle=True,
-            num_workers=num_workers,
-            batch_size=256,
-            pin_memory=True,
-        )
-        start = time()
-        for i, data in enumerate(train_loader, 0):
-            pass
-            if i == 10:
-                break
-        end = time()
-        print("Finish with:{} second, num_workers={}".format(end - start, num_workers))
+    # for num_workers in range(2, mp.cpu_count(), 2):
+    #     train_loader = DataLoader(
+    #         dataset_train,
+    #         shuffle=True,
+    #         num_workers=num_workers,
+    #         batch_size=256,
+    #         pin_memory=True,
+    #     )
+    #     start = time()
+    #     for i, data in enumerate(train_loader, 0):
+    #         pass
+    #         if i == 10:
+    #             break
+    #     end = time()
+    #     print("Finish with:{} second, num_workers={}".format(end - start, num_workers))
 
     # build encoder and decoder
     enc: encoder.SparseEncoder = build_sparse_encoder(
