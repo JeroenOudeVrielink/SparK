@@ -1,0 +1,662 @@
+wandb_version: 1
+
+_initialized:
+  desc: null
+  value: true
+_explicit_bool:
+  desc: null
+  value: true
+_underscores_to_dashes:
+  desc: null
+  value: false
+_parsed:
+  desc: null
+  value: true
+extra_args:
+  desc: null
+  value: []
+argument_buffer:
+  desc: null
+  value:
+    help:
+    - - -h
+      - --help
+    - action: help
+      default: ==SUPPRESS==
+      help: show this help message and exit
+_subparser_buffer:
+  desc: null
+  value: []
+class_variables:
+  desc: null
+  value:
+    exp_name:
+      comment: ''
+    exp_dir:
+      comment: will be created if not exists
+    data_path:
+      comment: ''
+    init_weight:
+      comment: use some checkpoint as model weight initialization; ONLY load model
+        weights
+    resume_from:
+      comment: resume the experiment from some checkpoint.pth; load model weights,
+        optimizer states, and last epoch
+    mask:
+      comment: mask ratio, should be in (0, 1)
+    model:
+      comment: ''
+    input_size:
+      comment: ''
+    sbn:
+      comment: ''
+    bs:
+      comment: ''
+    dataloader_workers:
+      comment: ''
+    dp:
+      comment: ''
+    base_lr:
+      comment: ''
+    wd:
+      comment: ''
+    wde:
+      comment: ''
+    ep:
+      comment: ''
+    wp_ep:
+      comment: ''
+    clip:
+      comment: ''
+    opt:
+      comment: ''
+    ada:
+      comment: ''
+    lr:
+      comment: ''
+    batch_size_per_gpu:
+      comment: ''
+    glb_batch_size:
+      comment: ''
+    densify_norm:
+      comment: ''
+    device:
+      comment: ''
+    local_rank:
+      comment: ''
+    cmd:
+      comment: ''
+    commit_id:
+      comment: ''
+    commit_msg:
+      comment: ''
+    last_loss:
+      comment: ''
+    cur_ep:
+      comment: ''
+    remain_time:
+      comment: ''
+    finish_time:
+      comment: ''
+    first_logging:
+      comment: ''
+    log_txt_name:
+      comment: ''
+    tb_lg_dir:
+      comment: tensorboard log directory
+    wandb_log_freq:
+      comment: ''
+    date_time:
+      comment: ''
+    model_ckpt_freq:
+      comment: ''
+    annotations_file:
+      comment: ''
+_annotations:
+  desc: null
+  value:
+    exp_name: builtins.str
+    exp_dir: builtins.str
+    data_path: builtins.str
+    init_weight: builtins.str
+    resume_from: builtins.str
+    mask: builtins.float
+    model: builtins.str
+    input_size: builtins.int
+    sbn: builtins.bool
+    bs: builtins.int
+    dataloader_workers: builtins.int
+    dp: builtins.float
+    base_lr: builtins.float
+    wd: builtins.float
+    wde: builtins.float
+    ep: builtins.int
+    wp_ep: builtins.int
+    clip: builtins.int
+    opt: builtins.str
+    ada: builtins.float
+    lr: builtins.float
+    batch_size_per_gpu: builtins.int
+    glb_batch_size: builtins.int
+    densify_norm: builtins.str
+    device: builtins.str
+    local_rank: builtins.int
+    cmd: builtins.str
+    commit_id: builtins.str
+    commit_msg: builtins.str
+    last_loss: builtins.float
+    cur_ep: builtins.str
+    remain_time: builtins.str
+    finish_time: builtins.str
+    first_logging: builtins.bool
+    log_txt_name: builtins.str
+    tb_lg_dir: builtins.str
+    wandb_log_freq: builtins.int
+    date_time: builtins.str
+    model_ckpt_freq: builtins.int
+    annotations_file: builtins.str
+description:
+  desc: null
+  value: null
+argument_default:
+  desc: null
+  value: null
+prefix_chars:
+  desc: null
+  value: '-'
+conflict_handler:
+  desc: null
+  value: error
+_registries:
+  desc: null
+  value:
+    action:
+      'null': argparse._StoreAction
+      store: argparse._StoreAction
+      store_const: argparse._StoreConstAction
+      store_true: argparse._StoreTrueAction
+      store_false: argparse._StoreFalseAction
+      append: argparse._AppendAction
+      append_const: argparse._AppendConstAction
+      count: argparse._CountAction
+      help: argparse._HelpAction
+      version: argparse._VersionAction
+      parsers: argparse._SubParsersAction
+      extend: argparse._ExtendAction
+    type:
+      'null': argparse.ArgumentParser.__init__.<locals>.identity
+_actions:
+  desc: null
+  value:
+  - _StoreAction(option_strings=['--exp_name'], dest='exp_name', nargs=None, const=None,
+    default='your_exp_name', type=<class 'str'>, choices=None, required=False, help='(str,
+    default=your_exp_name) ', metavar=None)
+  - _StoreAction(option_strings=['--exp_dir'], dest='exp_dir', nargs=None, const=None,
+    default='your_exp_dir', type=<class 'str'>, choices=None, required=False, help='(str,
+    default=your_exp_dir) will be created if not exists', metavar=None)
+  - _StoreAction(option_strings=['--data_path'], dest='data_path', nargs=None, const=None,
+    default='imagenet_data_path', type=<class 'str'>, choices=None, required=False,
+    help='(str, default=imagenet_data_path) ', metavar=None)
+  - _StoreAction(option_strings=['--init_weight'], dest='init_weight', nargs=None,
+    const=None, default='', type=<class 'str'>, choices=None, required=False, help='(str,
+    default=) use some checkpoint as model weight initialization; ONLY load model
+    weights', metavar=None)
+  - _StoreAction(option_strings=['--resume_from'], dest='resume_from', nargs=None,
+    const=None, default='', type=<class 'str'>, choices=None, required=False, help='(str,
+    default=) resume the experiment from some checkpoint.pth; load model weights,
+    optimizer states, and last epoch', metavar=None)
+  - _StoreAction(option_strings=['--mask'], dest='mask', nargs=None, const=None, default=0.6,
+    type=<class 'float'>, choices=None, required=False, help='(float, default=0.6)
+    mask ratio, should be in (0, 1)', metavar=None)
+  - _StoreAction(option_strings=['--model'], dest='model', nargs=None, const=None,
+    default='resnet50', type=<class 'str'>, choices=None, required=False, help='(str,
+    default=resnet50) ', metavar=None)
+  - _StoreAction(option_strings=['--input_size'], dest='input_size', nargs=None, const=None,
+    default=224, type=<class 'int'>, choices=None, required=False, help='(int, default=224)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--sbn'], dest='sbn', nargs=None, const=None, default=True,
+    type=<function boolean_type at 0x7fc367e365c0>, choices=[True, False], required=False,
+    help='(bool, default=True) ', metavar=None)
+  - _StoreAction(option_strings=['--bs'], dest='bs', nargs=None, const=None, default=4096,
+    type=<class 'int'>, choices=None, required=False, help='(int, default=4096) ',
+    metavar=None)
+  - _StoreAction(option_strings=['--dataloader_workers'], dest='dataloader_workers',
+    nargs=None, const=None, default=8, type=<class 'int'>, choices=None, required=False,
+    help='(int, default=8) ', metavar=None)
+  - _StoreAction(option_strings=['--dp'], dest='dp', nargs=None, const=None, default=0.0,
+    type=<class 'float'>, choices=None, required=False, help='(float, default=0.0)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--base_lr'], dest='base_lr', nargs=None, const=None,
+    default=0.0002, type=<class 'float'>, choices=None, required=False, help='(float,
+    default=0.0002) ', metavar=None)
+  - _StoreAction(option_strings=['--wd'], dest='wd', nargs=None, const=None, default=0.04,
+    type=<class 'float'>, choices=None, required=False, help='(float, default=0.04)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--wde'], dest='wde', nargs=None, const=None, default=0.2,
+    type=<class 'float'>, choices=None, required=False, help='(float, default=0.2)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--ep'], dest='ep', nargs=None, const=None, default=1600,
+    type=<class 'int'>, choices=None, required=False, help='(int, default=1600) ',
+    metavar=None)
+  - _StoreAction(option_strings=['--wp_ep'], dest='wp_ep', nargs=None, const=None,
+    default=40, type=<class 'int'>, choices=None, required=False, help='(int, default=40)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--clip'], dest='clip', nargs=None, const=None, default=5.0,
+    type=<class 'int'>, choices=None, required=False, help='(int, default=5.0) ',
+    metavar=None)
+  - _StoreAction(option_strings=['--opt'], dest='opt', nargs=None, const=None, default='lamb',
+    type=<class 'str'>, choices=None, required=False, help='(str, default=lamb) ',
+    metavar=None)
+  - _StoreAction(option_strings=['--ada'], dest='ada', nargs=None, const=None, default=0.0,
+    type=<class 'float'>, choices=None, required=False, help='(float, default=0.0)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--lr'], dest='lr', nargs=None, const=None, default=None,
+    type=<class 'float'>, choices=None, required=False, help='(float, default=None)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--batch_size_per_gpu'], dest='batch_size_per_gpu',
+    nargs=None, const=None, default=0, type=<class 'int'>, choices=None, required=False,
+    help='(int, default=0) ', metavar=None)
+  - _StoreAction(option_strings=['--glb_batch_size'], dest='glb_batch_size', nargs=None,
+    const=None, default=0, type=<class 'int'>, choices=None, required=False, help='(int,
+    default=0) ', metavar=None)
+  - _StoreAction(option_strings=['--densify_norm'], dest='densify_norm', nargs=None,
+    const=None, default='', type=<class 'str'>, choices=None, required=False, help='(str,
+    default=) ', metavar=None)
+  - _StoreAction(option_strings=['--device'], dest='device', nargs=None, const=None,
+    default='cpu', type=<class 'str'>, choices=None, required=False, help='(str, default=cpu)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--local_rank'], dest='local_rank', nargs=None, const=None,
+    default=0, type=<class 'int'>, choices=None, required=False, help='(int, default=0)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--cmd'], dest='cmd', nargs=None, const=None, default='--exp_name=debug
+    --exp_dir=debug --data_path=/mnt/sdb1/Data_remote/AIML_rot_corrected --model=resnet50
+    --bs=4 --ep=6 --dataloader_workers=14 --annotations_file=annotations/imgs_paths_mini.csv
+    --model_ckpt_freq=2', type=<class 'str'>, choices=None, required=False, help='(str,
+    default=--exp_name=debug --exp_dir=debug --data_path=/mnt/sdb1/Data_remote/AIML_rot_corrected
+    --model=resnet50 --bs=4 --ep=6 --dataloader_workers=14 --annotations_file=annotations/imgs_paths_mini.csv
+    --model_ckpt_freq=2) ', metavar=None)
+  - _StoreAction(option_strings=['--commit_id'], dest='commit_id', nargs=None, const=None,
+    default='9c2ff2a1d5d862b75c5b59da06d7519d92ec819b', type=<class 'str'>, choices=None,
+    required=False, help='(str, default=9c2ff2a1d5d862b75c5b59da06d7519d92ec819b)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--commit_msg'], dest='commit_msg', nargs=None, const=None,
+    default='quick fix', type=<class 'str'>, choices=None, required=False, help='(str,
+    default=quick fix) ', metavar=None)
+  - _StoreAction(option_strings=['--last_loss'], dest='last_loss', nargs=None, const=None,
+    default=0.0, type=<class 'float'>, choices=None, required=False, help='(float,
+    default=0.0) ', metavar=None)
+  - _StoreAction(option_strings=['--cur_ep'], dest='cur_ep', nargs=None, const=None,
+    default='', type=<class 'str'>, choices=None, required=False, help='(str, default=)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--remain_time'], dest='remain_time', nargs=None,
+    const=None, default='', type=<class 'str'>, choices=None, required=False, help='(str,
+    default=) ', metavar=None)
+  - _StoreAction(option_strings=['--finish_time'], dest='finish_time', nargs=None,
+    const=None, default='', type=<class 'str'>, choices=None, required=False, help='(str,
+    default=) ', metavar=None)
+  - _StoreAction(option_strings=['--first_logging'], dest='first_logging', nargs=None,
+    const=None, default=True, type=<function boolean_type at 0x7fc367e365c0>, choices=[True,
+    False], required=False, help='(bool, default=True) ', metavar=None)
+  - _StoreAction(option_strings=['--log_txt_name'], dest='log_txt_name', nargs=None,
+    const=None, default='{args.exp_dir}/pretrain_log.txt', type=<class 'str'>, choices=None,
+    required=False, help='(str, default={args.exp_dir}/pretrain_log.txt) ', metavar=None)
+  - _StoreAction(option_strings=['--tb_lg_dir'], dest='tb_lg_dir', nargs=None, const=None,
+    default='', type=<class 'str'>, choices=None, required=False, help='(str, default=)
+    tensorboard log directory', metavar=None)
+  - _StoreAction(option_strings=['--wandb_log_freq'], dest='wandb_log_freq', nargs=None,
+    const=None, default=100, type=<class 'int'>, choices=None, required=False, help='(int,
+    default=100) ', metavar=None)
+  - _StoreAction(option_strings=['--date_time'], dest='date_time', nargs=None, const=None,
+    default='', type=<class 'str'>, choices=None, required=False, help='(str, default=)
+    ', metavar=None)
+  - _StoreAction(option_strings=['--model_ckpt_freq'], dest='model_ckpt_freq', nargs=None,
+    const=None, default=10, type=<class 'int'>, choices=None, required=False, help='(int,
+    default=10) ', metavar=None)
+  - _StoreAction(option_strings=['--annotations_file'], dest='annotations_file', nargs=None,
+    const=None, default='annotations/img_paths.csv', type=<class 'str'>, choices=None,
+    required=False, help='(str, default=annotations/img_paths.csv) ', metavar=None)
+  - _HelpAction(option_strings=['-h', '--help'], dest='help', nargs=0, const=None,
+    default='==SUPPRESS==', type=None, choices=None, required=False, help='show this
+    help message and exit', metavar=None)
+_option_string_actions:
+  desc: null
+  value:
+    --exp_name: _StoreAction(option_strings=['--exp_name'], dest='exp_name', nargs=None,
+      const=None, default='your_exp_name', type=<class 'str'>, choices=None, required=False,
+      help='(str, default=your_exp_name) ', metavar=None)
+    --exp_dir: _StoreAction(option_strings=['--exp_dir'], dest='exp_dir', nargs=None,
+      const=None, default='your_exp_dir', type=<class 'str'>, choices=None, required=False,
+      help='(str, default=your_exp_dir) will be created if not exists', metavar=None)
+    --data_path: _StoreAction(option_strings=['--data_path'], dest='data_path', nargs=None,
+      const=None, default='imagenet_data_path', type=<class 'str'>, choices=None,
+      required=False, help='(str, default=imagenet_data_path) ', metavar=None)
+    --init_weight: _StoreAction(option_strings=['--init_weight'], dest='init_weight',
+      nargs=None, const=None, default='', type=<class 'str'>, choices=None, required=False,
+      help='(str, default=) use some checkpoint as model weight initialization; ONLY
+      load model weights', metavar=None)
+    --resume_from: _StoreAction(option_strings=['--resume_from'], dest='resume_from',
+      nargs=None, const=None, default='', type=<class 'str'>, choices=None, required=False,
+      help='(str, default=) resume the experiment from some checkpoint.pth; load model
+      weights, optimizer states, and last epoch', metavar=None)
+    --mask: _StoreAction(option_strings=['--mask'], dest='mask', nargs=None, const=None,
+      default=0.6, type=<class 'float'>, choices=None, required=False, help='(float,
+      default=0.6) mask ratio, should be in (0, 1)', metavar=None)
+    --model: _StoreAction(option_strings=['--model'], dest='model', nargs=None, const=None,
+      default='resnet50', type=<class 'str'>, choices=None, required=False, help='(str,
+      default=resnet50) ', metavar=None)
+    --input_size: _StoreAction(option_strings=['--input_size'], dest='input_size',
+      nargs=None, const=None, default=224, type=<class 'int'>, choices=None, required=False,
+      help='(int, default=224) ', metavar=None)
+    --sbn: _StoreAction(option_strings=['--sbn'], dest='sbn', nargs=None, const=None,
+      default=True, type=<function boolean_type at 0x7fc367e365c0>, choices=[True,
+      False], required=False, help='(bool, default=True) ', metavar=None)
+    --bs: _StoreAction(option_strings=['--bs'], dest='bs', nargs=None, const=None,
+      default=4096, type=<class 'int'>, choices=None, required=False, help='(int,
+      default=4096) ', metavar=None)
+    --dataloader_workers: _StoreAction(option_strings=['--dataloader_workers'], dest='dataloader_workers',
+      nargs=None, const=None, default=8, type=<class 'int'>, choices=None, required=False,
+      help='(int, default=8) ', metavar=None)
+    --dp: _StoreAction(option_strings=['--dp'], dest='dp', nargs=None, const=None,
+      default=0.0, type=<class 'float'>, choices=None, required=False, help='(float,
+      default=0.0) ', metavar=None)
+    --base_lr: _StoreAction(option_strings=['--base_lr'], dest='base_lr', nargs=None,
+      const=None, default=0.0002, type=<class 'float'>, choices=None, required=False,
+      help='(float, default=0.0002) ', metavar=None)
+    --wd: _StoreAction(option_strings=['--wd'], dest='wd', nargs=None, const=None,
+      default=0.04, type=<class 'float'>, choices=None, required=False, help='(float,
+      default=0.04) ', metavar=None)
+    --wde: _StoreAction(option_strings=['--wde'], dest='wde', nargs=None, const=None,
+      default=0.2, type=<class 'float'>, choices=None, required=False, help='(float,
+      default=0.2) ', metavar=None)
+    --ep: _StoreAction(option_strings=['--ep'], dest='ep', nargs=None, const=None,
+      default=1600, type=<class 'int'>, choices=None, required=False, help='(int,
+      default=1600) ', metavar=None)
+    --wp_ep: _StoreAction(option_strings=['--wp_ep'], dest='wp_ep', nargs=None, const=None,
+      default=40, type=<class 'int'>, choices=None, required=False, help='(int, default=40)
+      ', metavar=None)
+    --clip: _StoreAction(option_strings=['--clip'], dest='clip', nargs=None, const=None,
+      default=5.0, type=<class 'int'>, choices=None, required=False, help='(int, default=5.0)
+      ', metavar=None)
+    --opt: _StoreAction(option_strings=['--opt'], dest='opt', nargs=None, const=None,
+      default='lamb', type=<class 'str'>, choices=None, required=False, help='(str,
+      default=lamb) ', metavar=None)
+    --ada: _StoreAction(option_strings=['--ada'], dest='ada', nargs=None, const=None,
+      default=0.0, type=<class 'float'>, choices=None, required=False, help='(float,
+      default=0.0) ', metavar=None)
+    --lr: _StoreAction(option_strings=['--lr'], dest='lr', nargs=None, const=None,
+      default=None, type=<class 'float'>, choices=None, required=False, help='(float,
+      default=None) ', metavar=None)
+    --batch_size_per_gpu: _StoreAction(option_strings=['--batch_size_per_gpu'], dest='batch_size_per_gpu',
+      nargs=None, const=None, default=0, type=<class 'int'>, choices=None, required=False,
+      help='(int, default=0) ', metavar=None)
+    --glb_batch_size: _StoreAction(option_strings=['--glb_batch_size'], dest='glb_batch_size',
+      nargs=None, const=None, default=0, type=<class 'int'>, choices=None, required=False,
+      help='(int, default=0) ', metavar=None)
+    --densify_norm: _StoreAction(option_strings=['--densify_norm'], dest='densify_norm',
+      nargs=None, const=None, default='', type=<class 'str'>, choices=None, required=False,
+      help='(str, default=) ', metavar=None)
+    --device: _StoreAction(option_strings=['--device'], dest='device', nargs=None,
+      const=None, default='cpu', type=<class 'str'>, choices=None, required=False,
+      help='(str, default=cpu) ', metavar=None)
+    --local_rank: _StoreAction(option_strings=['--local_rank'], dest='local_rank',
+      nargs=None, const=None, default=0, type=<class 'int'>, choices=None, required=False,
+      help='(int, default=0) ', metavar=None)
+    --cmd: _StoreAction(option_strings=['--cmd'], dest='cmd', nargs=None, const=None,
+      default='--exp_name=debug --exp_dir=debug --data_path=/mnt/sdb1/Data_remote/AIML_rot_corrected
+      --model=resnet50 --bs=4 --ep=6 --dataloader_workers=14 --annotations_file=annotations/imgs_paths_mini.csv
+      --model_ckpt_freq=2', type=<class 'str'>, choices=None, required=False, help='(str,
+      default=--exp_name=debug --exp_dir=debug --data_path=/mnt/sdb1/Data_remote/AIML_rot_corrected
+      --model=resnet50 --bs=4 --ep=6 --dataloader_workers=14 --annotations_file=annotations/imgs_paths_mini.csv
+      --model_ckpt_freq=2) ', metavar=None)
+    --commit_id: _StoreAction(option_strings=['--commit_id'], dest='commit_id', nargs=None,
+      const=None, default='9c2ff2a1d5d862b75c5b59da06d7519d92ec819b', type=<class
+      'str'>, choices=None, required=False, help='(str, default=9c2ff2a1d5d862b75c5b59da06d7519d92ec819b)
+      ', metavar=None)
+    --commit_msg: _StoreAction(option_strings=['--commit_msg'], dest='commit_msg',
+      nargs=None, const=None, default='quick fix', type=<class 'str'>, choices=None,
+      required=False, help='(str, default=quick fix) ', metavar=None)
+    --last_loss: _StoreAction(option_strings=['--last_loss'], dest='last_loss', nargs=None,
+      const=None, default=0.0, type=<class 'float'>, choices=None, required=False,
+      help='(float, default=0.0) ', metavar=None)
+    --cur_ep: _StoreAction(option_strings=['--cur_ep'], dest='cur_ep', nargs=None,
+      const=None, default='', type=<class 'str'>, choices=None, required=False, help='(str,
+      default=) ', metavar=None)
+    --remain_time: _StoreAction(option_strings=['--remain_time'], dest='remain_time',
+      nargs=None, const=None, default='', type=<class 'str'>, choices=None, required=False,
+      help='(str, default=) ', metavar=None)
+    --finish_time: _StoreAction(option_strings=['--finish_time'], dest='finish_time',
+      nargs=None, const=None, default='', type=<class 'str'>, choices=None, required=False,
+      help='(str, default=) ', metavar=None)
+    --first_logging: _StoreAction(option_strings=['--first_logging'], dest='first_logging',
+      nargs=None, const=None, default=True, type=<function boolean_type at 0x7fc367e365c0>,
+      choices=[True, False], required=False, help='(bool, default=True) ', metavar=None)
+    --log_txt_name: _StoreAction(option_strings=['--log_txt_name'], dest='log_txt_name',
+      nargs=None, const=None, default='{args.exp_dir}/pretrain_log.txt', type=<class
+      'str'>, choices=None, required=False, help='(str, default={args.exp_dir}/pretrain_log.txt)
+      ', metavar=None)
+    --tb_lg_dir: _StoreAction(option_strings=['--tb_lg_dir'], dest='tb_lg_dir', nargs=None,
+      const=None, default='', type=<class 'str'>, choices=None, required=False, help='(str,
+      default=) tensorboard log directory', metavar=None)
+    --wandb_log_freq: _StoreAction(option_strings=['--wandb_log_freq'], dest='wandb_log_freq',
+      nargs=None, const=None, default=100, type=<class 'int'>, choices=None, required=False,
+      help='(int, default=100) ', metavar=None)
+    --date_time: _StoreAction(option_strings=['--date_time'], dest='date_time', nargs=None,
+      const=None, default='', type=<class 'str'>, choices=None, required=False, help='(str,
+      default=) ', metavar=None)
+    --model_ckpt_freq: _StoreAction(option_strings=['--model_ckpt_freq'], dest='model_ckpt_freq',
+      nargs=None, const=None, default=10, type=<class 'int'>, choices=None, required=False,
+      help='(int, default=10) ', metavar=None)
+    --annotations_file: _StoreAction(option_strings=['--annotations_file'], dest='annotations_file',
+      nargs=None, const=None, default='annotations/img_paths.csv', type=<class 'str'>,
+      choices=None, required=False, help='(str, default=annotations/img_paths.csv)
+      ', metavar=None)
+    -h: _HelpAction(option_strings=['-h', '--help'], dest='help', nargs=0, const=None,
+      default='==SUPPRESS==', type=None, choices=None, required=False, help='show
+      this help message and exit', metavar=None)
+    --help: _HelpAction(option_strings=['-h', '--help'], dest='help', nargs=0, const=None,
+      default='==SUPPRESS==', type=None, choices=None, required=False, help='show
+      this help message and exit', metavar=None)
+_action_groups:
+  desc: null
+  value:
+  - <argparse._ArgumentGroup object at 0x7fc366ec8850>
+  - <argparse._ArgumentGroup object at 0x7fc366280c90>
+_mutually_exclusive_groups:
+  desc: null
+  value: []
+_defaults:
+  desc: null
+  value: {}
+_negative_number_matcher:
+  desc: null
+  value: re.compile('^-\\d+$|^-\\d*\\.\\d+$')
+_has_negative_number_optionals:
+  desc: null
+  value: []
+prog:
+  desc: null
+  value: main.py
+usage:
+  desc: null
+  value: null
+epilog:
+  desc: null
+  value: null
+formatter_class:
+  desc: null
+  value: argparse.HelpFormatter
+fromfile_prefix_chars:
+  desc: null
+  value: null
+add_help:
+  desc: null
+  value: true
+allow_abbrev:
+  desc: null
+  value: true
+exit_on_error:
+  desc: null
+  value: true
+_positionals:
+  desc: null
+  value: <argparse._ArgumentGroup object at 0x7fc366ec8850>
+_optionals:
+  desc: null
+  value: <argparse._ArgumentGroup object at 0x7fc366280c90>
+_subparsers:
+  desc: null
+  value: null
+args_from_configs:
+  desc: null
+  value: []
+exp_name:
+  desc: null
+  value: debug
+exp_dir:
+  desc: null
+  value: /home/jvrielink/Thesis/SparK/pretrain/debug/debug_01-10_15:17:51
+data_path:
+  desc: null
+  value: /mnt/sdb1/Data_remote/AIML_rot_corrected
+init_weight:
+  desc: null
+  value: ''
+resume_from:
+  desc: null
+  value: ''
+mask:
+  desc: null
+  value: 0.6
+model:
+  desc: null
+  value: resnet50
+input_size:
+  desc: null
+  value: 224
+sbn:
+  desc: null
+  value: false
+bs:
+  desc: null
+  value: 4
+dataloader_workers:
+  desc: null
+  value: 14
+dp:
+  desc: null
+  value: 0.0
+base_lr:
+  desc: null
+  value: 0.0002
+wd:
+  desc: null
+  value: 0.04
+wde:
+  desc: null
+  value: 0.2
+ep:
+  desc: null
+  value: 6
+wp_ep:
+  desc: null
+  value: 40
+clip:
+  desc: null
+  value: 5.0
+opt:
+  desc: null
+  value: lamb
+ada:
+  desc: null
+  value: 0.95
+lr:
+  desc: null
+  value: 3.125e-06
+batch_size_per_gpu:
+  desc: null
+  value: 4
+glb_batch_size:
+  desc: null
+  value: 4
+densify_norm:
+  desc: null
+  value: bn
+device:
+  desc: null
+  value: cuda:0
+local_rank:
+  desc: null
+  value: 0
+cmd:
+  desc: null
+  value: --exp_name=debug --exp_dir=debug --data_path=/mnt/sdb1/Data_remote/AIML_rot_corrected
+    --model=resnet50 --bs=4 --ep=6 --dataloader_workers=14 --annotations_file=annotations/imgs_paths_mini.csv
+    --model_ckpt_freq=2
+commit_id:
+  desc: null
+  value: 9c2ff2a1d5d862b75c5b59da06d7519d92ec819b
+commit_msg:
+  desc: null
+  value: quick fix
+last_loss:
+  desc: null
+  value: 0.0
+cur_ep:
+  desc: null
+  value: ''
+remain_time:
+  desc: null
+  value: ''
+finish_time:
+  desc: null
+  value: ''
+first_logging:
+  desc: null
+  value: true
+log_txt_name:
+  desc: null
+  value: /home/jvrielink/Thesis/SparK/pretrain/debug/debug_01-10_15:17:51/pretrain_log.txt
+tb_lg_dir:
+  desc: null
+  value: /home/jvrielink/Thesis/SparK/pretrain/debug/debug_01-10_15:17:51/tensorboard_log
+wandb_log_freq:
+  desc: null
+  value: 100
+date_time:
+  desc: null
+  value: 01-10_15:17:51
+model_ckpt_freq:
+  desc: null
+  value: 2
+annotations_file:
+  desc: null
+  value: annotations/imgs_paths_mini.csv
+_wandb:
+  desc: null
+  value:
+    python_version: 3.11.7
+    cli_version: 0.16.2
+    framework: torch
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1704862072.755753
+    t:
+      1:
+      - 1
+      - 41
+      - 55
+      - 63
+      2:
+      - 1
+      - 41
+      - 55
+      - 63
+      3:
+      - 13
+      - 16
+      - 23
+      4: 3.11.7
+      5: 0.16.2
+      8:
+      - 5
+      13: linux-x86_64

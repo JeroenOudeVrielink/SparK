@@ -1,0 +1,14 @@
+wandb: Currently logged in as: jeroenov98. Use `wandb login --relogin` to force relogin
+wandb: Tracking run with wandb version 0.16.2
+wandb: Run data is saved locally in /home/jvrielink/Thesis/SparK/pretrain/debug/debug_01-10_15:16:36/wandb/run-20240110_151638-g9ds0jku
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run debug_01-10_15:16:36
+wandb:  View project at https://wandb.ai/jeroenov98/AIML-SSL
+wandb:  View run at https://wandb.ai/jeroenov98/AIML-SSL/runs/g9ds0jku
+[01-10 12:46:49] (/python3.11/traceback.py, line1018)=> Traceback (most recent call last):
+[01-10 12:46:49] (/python3.11/traceback.py, line1018)=>   File "/home/jvrielink/Thesis/SparK/pretrain/main.py", line 329, in <module>
+    main_pt()
+[01-10 12:46:49] (/python3.11/traceback.py, line1018)=>   File "/home/jvrielink/Thesis/SparK/pretrain/main.py", line 66, in main_pt
+    dataset_train = build_dataset_to_pretrain(args.data_path, args.input_size)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[01-10 12:46:49] (/python3.11/traceback.py, line1018)=> TypeError: build_dataset_to_pretrain() missing 1 required positional argument: 'input_size'

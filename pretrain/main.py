@@ -63,7 +63,7 @@ def main_pt():
 
     # build data
     print(f"[build data for pre-training] ...\n")
-    dataset_train = build_dataset_to_pretrain(args.data_path, args.input_size)
+    dataset_train = build_dataset_to_pretrain(args.annotations_file, args.data_path, args.input_size)
     data_loader_train = DataLoader(
         dataset=dataset_train,
         num_workers=args.dataloader_workers,
@@ -179,19 +179,20 @@ def main_pt():
             last_loss = stats["last_loss"]
             min_loss = min(min_loss, last_loss)
             performance_desc = f"{min_loss:.4f} {last_loss:.4f}"
-            misc.save_checkpoint_with_meta_info_and_opt_state(
-                f"{args.model}_withdecoder_1kpretrained_spark_style.pth",
-                args,
-                ep,
-                performance_desc,
-                model_without_ddp.state_dict(with_config=True),
-                optimizer.state_dict(),
-            )
-            misc.save_checkpoint_model_weights_only(
-                f"{args.model}_1kpretrained_timm_style.pth",
-                args,
-                model_without_ddp.sparse_encoder.sp_cnn.state_dict(),
-            )
+            if ep % args.model_ckpt_freq == 0:
+                misc.save_checkpoint_with_meta_info_and_opt_state(
+                    f"{args.model}_withdecoder_1kpretrained_spark_style_ep{ep}.pth",
+                    args,
+                    ep,
+                    performance_desc,
+                    model_without_ddp.state_dict(with_config=True),
+                    optimizer.state_dict(),
+                )
+                misc.save_checkpoint_model_weights_only(
+                    f"{args.model}_1kpretrained_timm_style_ep{ep}.pth",
+                    args,
+                    model_without_ddp.sparse_encoder.sp_cnn.state_dict(),
+                )
 
             ep_cost = (
                 round(time.time() - ep_start_time, 2) + 1

@@ -82,7 +82,7 @@ class ImageNetDataset(DatasetFolder):
         return self.transform(self.loader(img_file_path))
 
 
-def build_dataset_to_pretrain(dataset_path, input_size) -> Dataset:
+def build_dataset_to_pretrain(annotations_file, dataset_path, input_size) -> Dataset:
     """
     You may need to modify this function to return your own dataset.
     Define a new class, a subclass of `Dataset`, to replace our ImageNetDataset.
@@ -123,7 +123,6 @@ def build_dataset_to_pretrain(dataset_path, input_size) -> Dataset:
     # dataset_train = ImageNetDataset(
     #     imagenet_folder=dataset_path, transform=trans_train, train=True
     # )
-    annotations_file = os.path.join(dataset_path, "annotations/img_paths.csv")
     dataset_train = AIMLDataset(annotations_file, dataset_path, mod_trans_train)
     print_transform(mod_trans_train, "[pre-train]")
     return dataset_train

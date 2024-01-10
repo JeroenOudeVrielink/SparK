@@ -68,6 +68,8 @@ class Args(Tap):
     # CUSTOM params
     wandb_log_freq: int = 100
     date_time: str = ""
+    model_ckpt_freq: int = 10
+    annotations_file: str = "annotations/img_paths.csv"
 
     @property
     def is_convnext(self):
