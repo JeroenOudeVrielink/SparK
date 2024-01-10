@@ -1,10 +1,10 @@
 
 python main.py \
 --exp_name=debug \
---exp_dir=debug \
---data_path=/mnt/sdb1/Data_remote/AIML_rot_corrected \
+--exp_dir=/spark_models \
+--data_path=/jvrielink/AIML_rot_corrected \
 --model=resnet50 \
---bs=4 \
+--bs=256 \
 --ep=6 \
 --dataloader_workers=14 \
 --annotations_file=annotations/img_paths_mini.csv \
