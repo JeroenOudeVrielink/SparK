@@ -1,3 +1,6 @@
+
+*.png
+
 *.swp
 **/__pycache__/**
 .idea/*

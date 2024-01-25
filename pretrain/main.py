@@ -63,7 +63,9 @@ def main_pt():
 
     # build data
     print(f"[build data for pre-training] ...\n")
-    dataset_train = build_dataset_to_pretrain(args.annotations_file, args.data_path, args.input_size)
+    dataset_train = build_dataset_to_pretrain(
+        args.annotations_file, args.data_path, args.input_size
+    )
     data_loader_train = DataLoader(
         dataset=dataset_train,
         num_workers=args.dataloader_workers,
@@ -117,6 +119,7 @@ def main_pt():
         mask_ratio=args.mask,
         densify_norm=args.densify_norm,
         sbn=args.sbn,
+        laplace_recon=args.laplace_recon,
     ).to(args.device)
     print(f"[PT model] model = {model_without_ddp}\n")
 

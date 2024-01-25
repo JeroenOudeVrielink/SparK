@@ -1,0 +1,42 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "train",
+            "type": "python",
+            "request": "launch",
+            "program": "pretrain/main.py",
+            "console": "integratedTerminal",
+            "justMyCode": true,
+            "args": [
+                "--exp_name",
+                "debug",
+                "--exp_dir",
+                "debug",
+                "--data_path",
+                "/mnt/sdb1/Data_remote/AIML_rot_corrected",
+                "--model",
+                "resnet50",
+                "--bs",
+                "2",
+                "--ep",
+                "6",
+                "--dataloader_workers",
+                "4",
+                "--annotations_file",
+                "/mnt/sdb1/Data_remote/AIML_rot_corrected/annotations/img_paths_mini.csv",
+                "--model_ckpt_freq",
+                "2",
+                "--input_size",
+                "448",
+                "--laplace_recon",
+                "True",
+                "--mask",
+                "0.75",
+            ]
+        }
+    ]
+}

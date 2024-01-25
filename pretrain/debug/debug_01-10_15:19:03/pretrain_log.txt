@@ -1,3 +1,0 @@
-{"name": "debug", "cmd": "--exp_name=debug --exp_dir=debug --data_path=/mnt/sdb1/Data_remote/AIML_rot_corrected --model=resnet50 --bs=4 --ep=6 --dataloader_workers=14 --annotations_file=annotations/img_paths_mini.csv --model_ckpt_freq=2", "git_commit_id": "9c2ff2a1d5d862b75c5b59da06d7519d92ec819b", "git_commit_msg": "quick fix", "model": "resnet50"}
-
-{"cur_ep": "", "last_L": 0.0, "rema": "", "fini": ""}

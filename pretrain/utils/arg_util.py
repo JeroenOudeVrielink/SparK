@@ -70,6 +70,7 @@ class Args(Tap):
     date_time: str = ""
     model_ckpt_freq: int = 10
     annotations_file: str = "annotations/img_paths.csv"
+    laplace_recon: bool = False
 
     @property
     def is_convnext(self):
