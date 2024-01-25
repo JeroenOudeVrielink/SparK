@@ -52,6 +52,27 @@ def init_wandb(args):
     )
 
 
+def test_opt_num_workers(args, dataset_train):
+    from time import time
+    import multiprocessing as mp
+
+    for num_workers in range(2, mp.cpu_count(), 2):
+        train_loader = DataLoader(
+            dataset_train,
+            shuffle=True,
+            num_workers=num_workers,
+            batch_size=args.glb_batch_size,
+            pin_memory=True,
+        )
+        start = time()
+        for i, data in enumerate(train_loader, 0):
+            pass
+            if i == 10:
+                break
+        end = time()
+        print("Finish with:{} second, num_workers={}".format(end - start, num_workers))
+
+
 def main_pt():
     args: arg_util.Args = arg_util.init_dist_and_get_args()
     print(f"initial args:\n{str(args)}")
@@ -85,24 +106,7 @@ def main_pt():
         f"[dataloader] gbs={args.glb_batch_size}, lbs={args.batch_size_per_gpu}, iters_train={iters_train}"
     )
 
-    # from time import time
-    # import multiprocessing as mp
-
-    # for num_workers in range(2, mp.cpu_count(), 2):
-    #     train_loader = DataLoader(
-    #         dataset_train,
-    #         shuffle=True,
-    #         num_workers=num_workers,
-    #         batch_size=256,
-    #         pin_memory=True,
-    #     )
-    #     start = time()
-    #     for i, data in enumerate(train_loader, 0):
-    #         pass
-    #         if i == 10:
-    #             break
-    #     end = time()
-    #     print("Finish with:{} second, num_workers={}".format(end - start, num_workers))
+    test_opt_num_workers(args, dataset_train)
 
     # build encoder and decoder
     enc: encoder.SparseEncoder = build_sparse_encoder(
