@@ -106,7 +106,7 @@ def main_pt():
         f"[dataloader] gbs={args.glb_batch_size}, lbs={args.batch_size_per_gpu}, iters_train={iters_train}"
     )
 
-    test_opt_num_workers(args, dataset_train)
+    # test_opt_num_workers(args, dataset_train)
 
     # build encoder and decoder
     enc: encoder.SparseEncoder = build_sparse_encoder(
