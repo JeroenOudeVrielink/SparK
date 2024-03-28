@@ -97,8 +97,9 @@ def get_binary_weights(image_tensor):
 
 def get_weighted_random_mask(image, masking_ratio=0.6):
     weights = get_binary_weights(image)
-    # weights = weights / (weights.sum() + 1e-5)
     n_masked = round(masking_ratio * np.count_nonzero(weights))
+    weights = weights + 1e-6
+    weights = weights / weights.sum()
     indices = np.random.choice(49, n_masked, replace=False, p=weights)
     indices = torch.tensor(indices)
     mask = (
