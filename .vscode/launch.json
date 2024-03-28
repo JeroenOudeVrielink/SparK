@@ -17,7 +17,7 @@
                 "--exp_dir",
                 "debug",
                 "--data_path",
-                "/mnt/sdb1/Data_remote/AIML_rot_corrected",
+                "~/data_hdd/AIML_rot_corrected",
                 "--model",
                 "resnet50",
                 "--bs",
@@ -27,15 +27,11 @@
                 "--dataloader_workers",
                 "4",
                 "--annotations_file",
-                "/mnt/sdb1/Data_remote/AIML_rot_corrected/annotations/img_paths_mini.csv",
+                "~/data_hdd/AIML_rot_corrected/annotations/img_paths_mini.csv",
                 "--model_ckpt_freq",
                 "2",
-                "--input_size",
-                "448",
-                "--laplace_recon",
+                "--weighted_masking",
                 "True",
-                "--mask",
-                "0.75",
             ]
         }
     ]

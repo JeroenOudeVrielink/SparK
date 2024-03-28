@@ -27,7 +27,7 @@ from utils.lr_control import lr_wd_annealing, get_param_groups
 
 import wandb
 
-torch.set_float32_matmul_precision("high")
+# torch.set_float32_matmul_precision("high")
 
 
 class LocalDDP(torch.nn.Module):
@@ -85,7 +85,11 @@ def main_pt():
     # build data
     print(f"[build data for pre-training] ...\n")
     dataset_train = build_dataset_to_pretrain(
-        args.annotations_file, args.data_path, args.input_size
+        args.annotations_file,
+        args.data_path,
+        args.input_size,
+        args.weighted_masking,
+        args.mask,
     )
     data_loader_train = DataLoader(
         dataset=dataset_train,
@@ -277,7 +281,7 @@ def pre_train_one_ep(
     if early_clipping:
         params_req_grad = [p for p in model.parameters() if p.requires_grad]
 
-    for it, inp in enumerate(me.log_every(iters_train, itrt_train, 3, header)):
+    for it, x in enumerate(me.log_every(iters_train, itrt_train, 3, header)):
         # adjust lr and wd
         min_lr, max_lr, min_wd, max_wd = lr_wd_annealing(
             optimizer,
@@ -290,9 +294,15 @@ def pre_train_one_ep(
         )
 
         # forward and backward
+        inp, mask = x
+        if args.weighted_masking:
+            mask = mask.unsqueeze(1)
+            mask = mask.to(args.device, non_blocking=True)
+        else:
+            mask = None
         inp = inp.to(args.device, non_blocking=True)
         SparK.forward
-        loss = model(inp, active_b1ff=None, vis=False)
+        loss = model(inp, active_b1ff=mask, vis=False)
         optimizer.zero_grad()
         loss.backward()
         loss = loss.item()
