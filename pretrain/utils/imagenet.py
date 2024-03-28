@@ -218,6 +218,9 @@ def build_dataset_to_pretrain(
         masking_ratio=masking_ratio,
     )
     print_transform(mod_trans_train, "[pre-train]")
+    if weighted_masking:
+        print("Weighted masking is ENABELED!")
+
     return dataset_train
 
 
